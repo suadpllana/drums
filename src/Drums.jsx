@@ -17,32 +17,32 @@ const Drums = () => {
       }
     switch (key) {
       case "w":
-        let sound1 = new Audio("../src/assets/crash.mp3");
+        let sound1 = new Audio("/assets/crash.mp3");
         sound1.play();
       
         break;
       case "s":
-        let sound2 = new Audio("../src/assets/kick-bass.mp3");
+        let sound2 = new Audio("/assets/kick-bass.mp3");
         sound2.play();
         break;
       case "d":
-        let sound3 = new Audio("../src/assets/tom-1.mp3");
+        let sound3 = new Audio("/assets/tom-1.mp3");
         sound3.play();
         break;
       case "a":
-        let sound4 = new Audio("../src/assets/tom-1.mp3");
+        let sound4 = new Audio("/assets/tom-1.mp3");
         sound4.play();
         break;
       case "r":
-        let sound5 = new Audio("../src/assets/tom-2.mp3");
+        let sound5 = new Audio("/assets/tom-2.mp3");
         sound5.play();
         break;
       case "f":
-        let sound6 = new Audio("../src/assets/tom-3.mp3");
+        let sound6 = new Audio("/assets/tom-3.mp3");
         sound6.play();
         break;
       case "g":
-        let sound7 = new Audio("../src/assets/tom-4.mp3");
+        let sound7 = new Audio("/assets/tom-4.mp3");
         sound7.play();
         break;
       default:
