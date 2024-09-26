@@ -1,4 +1,12 @@
 import React, { useEffect } from "react";
+import crash from "./assets/crash.mp3"
+import kick from "./assets/kick-bass.mp3"
+import snare from "./assets/snare.mp3"
+import tom1 from "./assets/tom-1.mp3"
+import tom2 from "./assets/tom-2.mp3"
+import tom3 from "./assets/tom-3.mp3"
+import tom4 from "./assets/tom-4.mp3"
+
 
 const Drums = () => {
 
@@ -17,32 +25,32 @@ const Drums = () => {
       }
     switch (key) {
       case "w":
-        let sound1 = new Audio("/assets/crash.mp3");
+        let sound1 = new Audio(crash);
         sound1.play();
       
         break;
       case "s":
-        let sound2 = new Audio("/assets/kick-bass.mp3");
+        let sound2 = new Audio(kick);
         sound2.play();
         break;
       case "d":
-        let sound3 = new Audio("/assets/tom-1.mp3");
+        let sound3 = new Audio(snare);
         sound3.play();
         break;
       case "a":
-        let sound4 = new Audio("/assets/tom-1.mp3");
+        let sound4 = new Audio(tom1);
         sound4.play();
         break;
       case "r":
-        let sound5 = new Audio("/assets/tom-2.mp3");
+        let sound5 = new Audio(tom2);
         sound5.play();
         break;
       case "f":
-        let sound6 = new Audio("/assets/tom-3.mp3");
+        let sound6 = new Audio(tom3);
         sound6.play();
         break;
       case "g":
-        let sound7 = new Audio("/assets/tom-4.mp3");
+        let sound7 = new Audio(tom4);
         sound7.play();
         break;
       default:
