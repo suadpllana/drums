@@ -1,61 +1,51 @@
 import React, { useEffect } from "react";
-import crash from "./assets/crash.mp3"
-import kick from "./assets/kick-bass.mp3"
-import snare from "./assets/snare.mp3"
-import tom1 from "./assets/tom-1.mp3"
-import tom2 from "./assets/tom-2.mp3"
-import tom3 from "./assets/tom-3.mp3"
-import tom4 from "./assets/tom-4.mp3"
-
+import crash from "./assets/crash.mp3";
+import kick from "./assets/kick-bass.mp3";
+import snare from "./assets/snare.mp3";
+import tom1 from "./assets/tom-1.mp3";
+import tom2 from "./assets/tom-2.mp3";
+import tom3 from "./assets/tom-3.mp3";
+import tom4 from "./assets/tom-4.mp3";
+import drumBeat from "./assets/drum-beat-02-36276.mp3";
+import drumRoll from "./assets/drum-roll-3-228357.mp3";
+import jokeDrum from "./assets/joke-drums-242242.mp3";
+import kickDrum from "./assets/kick-drum-230743.mp3";
+import snare1 from "./assets/tr707-snare-drum-241412.mp3";
+import snare2 from "./assets/tr909-snare-drum-241413.mp3";
+import AudioRecord from "../src/Audio";
+import DrumLessons from "./DrumLessons";
 
 const Drums = () => {
+  const sounds = {
+    w: crash,
+    s: kick,
+    d: snare,
+    a: tom1,
+    r: tom2,
+    f: tom3,
+    g: tom4,
+    t: drumBeat,
+    q: drumRoll,
+    e: jokeDrum,
+    z: kickDrum,
+    x: snare1,
+    c: snare2,
+  };
 
-
-
-  function playSound(key) {
-    const button = document.querySelector(`.${key}`)
+  const playSound = (key) => {
+    const button = document.querySelector(`.${key}`);
     if (button) {
-       
-        button.classList.add("pressed");
-    
+      button.classList.add("pressed");
+      setTimeout(() => button.classList.remove("pressed"), 200);
+    }
 
-        setTimeout(() => {
-          button.classList.remove("pressed");
-        }, 200);
-      }
-    switch (key) {
-      case "w":
-        let sound1 = new Audio(crash);
-        sound1.play();
-      
-        break;
-      case "s":
-        let sound2 = new Audio(kick);
-        sound2.play();
-        break;
-      case "d":
-        let sound3 = new Audio(snare);
-        sound3.play();
-        break;
-      case "a":
-        let sound4 = new Audio(tom1);
-        sound4.play();
-        break;
-      case "r":
-        let sound5 = new Audio(tom2);
-        sound5.play();
-        break;
-      case "f":
-        let sound6 = new Audio(tom3);
-        sound6.play();
-        break;
-      case "g":
-        let sound7 = new Audio(tom4);
-        sound7.play();
-        break;
-      default:
-        console.error("Invalid key press");
-        break;
+    if (sounds[key]) {
+      const audio = new Audio(sounds[key]);
+      audio.pause(); // Stop any existing playback
+      audio.currentTime = 0; // Reset audio
+      audio.play();
+    } else {
+      console.error("Invalid key press");
     }
   };
 
@@ -66,26 +56,27 @@ const Drums = () => {
 
     document.addEventListener("keydown", handleKeydown);
 
-  
     return () => {
       document.removeEventListener("keydown", handleKeydown);
     };
   }, []);
 
   return (
-    <div>
-      <div className="container">
-        <h1>Play Drums</h1>
-        <div className="drums">
-          <button className="drum w" onClick={() => playSound("w")}>w</button>
-          <button className="drum s" onClick={() => playSound("s")}>s</button>
-          <button className="drum d" onClick={() => playSound("d")}>d</button>
-          <button className="drum a" onClick={() => playSound("a")}>a</button>
-          <button className="drum r" onClick={() => playSound("r")}>r</button>
-          <button className="drum f" onClick={() => playSound("f")}>f</button>
-          <button className="drum g" onClick={() => playSound("g")}>g</button>
-        </div>
+    <div className="container">
+      <h1>Play Drums</h1>
+      <div className="drums">
+        {Object.keys(sounds).map((key) => (
+          <button
+            key={key}
+            className={`drum ${key}`}
+            onClick={() => playSound(key)}
+          >
+            {key}
+          </button>
+        ))}
       </div>
+      <AudioRecord />
+      <DrumLessons/>
     </div>
   );
 };

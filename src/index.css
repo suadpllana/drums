@@ -1,13 +1,23 @@
 body{
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(6, 6, 67);
+  text-align: center;
 }
 .container{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
   align-items: center;
   justify-content: center;
+}
+iframe{
+  margin-right: 20px;
+}
+.drums{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  row-gap: 20px;
 }
 h1{
   color: white;
@@ -53,7 +63,41 @@ h1{
   background-image: url(assets/tom3.png);
   background-size: cover;
 }
-.g{
+.t{
   background-image: url(assets/tom4.png);
   background-size: cover;
+}
+.q{
+  background-image: url(assets/drumRoll.png);
+  background-size: cover;
+}
+.e{
+  background-image: url(assets/jokeDrum.png);
+  background-size: cover;
+}
+.z{
+  background-image: url(assets/kickDrum.png);
+  background-size: cover;
+}
+.x{
+  background-image: url(assets/snare1.png);
+  background-size: cover;
+}
+
+.c{
+  background-image: url(assets/snare2.png);
+  background-size: cover;
+}
+@media (max-width: 767px){
+  .drums{
+    grid-template-columns: 1fr 1fr;
+  }
+  iframe{
+    width: 100%;
+  }
+}
+@media (min-width:768px) and (max-width: 1217px){
+  .drums{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
